@@ -14,10 +14,11 @@ public class Main {
             // Menu principal 
             String input = JOptionPane.showInputDialog(
                     "----- Menú Principal -----\n"
-                    + "1. Agregar Usuario\n"
-                    + "2. Inactivar Usuarios\n"
-                    + "3. Mostrar Usuarios\n"
-                    + "4. Salir\n"
+                    + "1. Registrar Usuario\n"
+                    + "2. Iniciar Sesión\n"
+                    + "3. Inactivar Usuarios\n"
+                    + "4. Mostrar Usuarios\n"
+                    + "5. Salir\n"
                     + "Ingrese la opción deseada:");
             try {
                 opcion = Integer.parseInt(input);
@@ -28,16 +29,22 @@ public class Main {
             // Se usa un switch para manejar las opciones del menú
             switch (opcion) {
                 case 1:
-                    r.apilar();
+                    r.registrarUsuario();
                     break;
                 case 2:
+                    String usuario = JOptionPane.showInputDialog("Ingrese su nombre de usuario");
+                    String contrasenia = JOptionPane.showInputDialog("Ingrese la contraseña");
+                    r.iniciarSesion(usuario, contrasenia);
                     break;
                 case 3:
                     break;
                 case 4:
+                    r.mostrarUsuarios();
+                    break;
+                case 5:
                     JOptionPane.showMessageDialog(null,
                             "Saliendo, gracias por usar al programa");
             }
-        } while (opcion != 4);
+        } while (opcion != 5);
     }
 }
