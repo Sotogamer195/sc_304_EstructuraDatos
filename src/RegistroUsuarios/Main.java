@@ -37,6 +37,9 @@ public class Main {
                     r.iniciarSesion(usuario, contrasenia);
                     break;
                 case 3:
+                    String usuario2 = JOptionPane.showInputDialog("Ingrese su nombre de usuario");
+                    String contrasenia2 = JOptionPane.showInputDialog("Ingrese la contraseña");
+                    r.inactivarUsuario(usuario2, contrasenia2);
                     break;
                 case 4:
                     r.mostrarUsuarios();

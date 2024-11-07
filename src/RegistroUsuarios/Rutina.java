@@ -26,8 +26,8 @@ public class Rutina {
         }
         NodoP nuevo = new NodoP();
         nuevo.setElemento(u);
-        if(esVacia()) {
-            cima = nuevo; 
+        if (esVacia()) {
+            cima = nuevo;
         } else {
             nuevo.setSiguiente(cima);
             cima = nuevo;
@@ -35,33 +35,50 @@ public class Rutina {
     }
 
     public boolean iniciarSesion(String usuario, String contrasenia) {
+        // Instancia de Menu de autos
+        MenuCatalogo mc = new MenuCatalogo();
         NodoP aux = cima;
-        while(aux != null) {
-            if(aux.getElemento().getNickname().equals(usuario) &&
-                    aux.getElemento().getContraseña().equals(contrasenia)) {
-                JOptionPane.showMessageDialog(null, 
+        while (aux != null) {
+            if (aux.getElemento().getNickname().equals(usuario)
+                    && aux.getElemento().getContraseña().equals(contrasenia)) {
+                JOptionPane.showMessageDialog(null,
                         "Bienvenido " + aux.getElemento().getNickname());
-                return true;                
+                mc.mostrarMenu();
+                return true;
             }
             aux = aux.getSiguiente();
         }
         JOptionPane.showMessageDialog(null, "No existe un usuario con esos datos");
         return false;
     }
-    
+
     public void mostrarUsuarios() {
         if (!esVacia()) {
             String s = "";
             NodoP aux = cima;
             while (aux != null) {
                 s = s + "El nickname del usuario es: " + aux.getElemento().getNickname()
-                        + ", contraseña: " + aux.getElemento().getContraseña();
+                        + ", contraseña: " + aux.getElemento().getContraseña() 
+                        + " y ¿su estado de usuario está vigente? " + aux.getElemento().isEstado() +"\n";
                 aux = aux.getSiguiente();
             }
             JOptionPane.showMessageDialog(null, "Los usuarios ingresados al sistema son:\n" + s);
         } else {
             JOptionPane.showMessageDialog(null, "No se encuentran usuarios en la sistema");
         }
+    }
+
+    public void inactivarUsuario(String usuario, String contrasenia) {
+        NodoP aux = cima;
+        while (aux != null) {
+            if (aux.getElemento().getNickname().equals(usuario)
+                    && aux.getElemento().getContraseña().equals(contrasenia)) {
+                aux.getElemento().setEstado(false);
+                aux = aux.getSiguiente();
+            }
+        }
+        JOptionPane.showMessageDialog(null, "Se ha inactivado al usuario " + usuario);
+        
     }
 
     public boolean esVacia() {
