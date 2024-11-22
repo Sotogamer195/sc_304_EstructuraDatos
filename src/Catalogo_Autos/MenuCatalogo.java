@@ -1,5 +1,6 @@
-package RegistroUsuarios;
+package Catalogo_Autos;
 
+import Catalogo_Cliente.SubmenusCatalogos;
 import javax.swing.JOptionPane;
 
 public class MenuCatalogo {

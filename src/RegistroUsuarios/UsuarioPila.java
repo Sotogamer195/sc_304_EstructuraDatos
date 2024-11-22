@@ -1,12 +1,13 @@
 package RegistroUsuarios;
 
+import Catalogo_Autos.MenuCatalogo;
 import javax.swing.JOptionPane;
 
-public class Rutina {
+public class UsuarioPila {
 
     private NodoP cima;
 
-    public Rutina() {
+    public UsuarioPila() {
         this.cima = null;
     }
 
@@ -48,7 +49,8 @@ public class Rutina {
             }
             aux = aux.getSiguiente();
         }
-        JOptionPane.showMessageDialog(null, "No existe un usuario con esos datos");
+        JOptionPane.showMessageDialog(null,
+                "¡Acceso Denegado. No existe un usuario con esos datos!");
         return false;
     }
 
@@ -58,14 +60,31 @@ public class Rutina {
             NodoP aux = cima;
             while (aux != null) {
                 s = s + "El nickname del usuario es: " + aux.getElemento().getNickname()
-                        + ", contraseña: " + aux.getElemento().getContraseña() 
-                        + " y ¿su estado de usuario está vigente? " + aux.getElemento().isEstado() +"\n";
+                        + ", contraseña: " + ocultarContrasenia()
+                        + " y ¿su estado de usuario está vigente? " + aux.getElemento().isEstado() + "\n";
                 aux = aux.getSiguiente();
             }
             JOptionPane.showMessageDialog(null, "Los usuarios ingresados al sistema son:\n" + s);
         } else {
             JOptionPane.showMessageDialog(null, "No se encuentran usuarios en la sistema");
         }
+    }
+
+    public String ocultarContrasenia() {
+        if (cima != null) {
+            NodoP aux = cima;
+            // Se usa Stringbuilder para construir la cadena
+            StringBuilder digitos = new StringBuilder();
+            int i = 0;
+            for (i = 0; i < aux.getElemento().getContraseña().length(); i++) {
+                // Se añade un * por cada caracter que tenga la contraseña
+                digitos.append('*');
+            }
+            // Se convierte el stringbuilder a toString para poder retornar
+            return digitos.toString();
+        }
+        // Se retorna una cadena vacía si la pila está vacía
+        return "";
     }
 
     public void inactivarUsuario(String usuario, String contrasenia) {
@@ -78,7 +97,7 @@ public class Rutina {
             }
         }
         JOptionPane.showMessageDialog(null, "Se ha inactivado al usuario " + usuario);
-        
+
     }
 
     public boolean esVacia() {

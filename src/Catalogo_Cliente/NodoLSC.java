@@ -1,4 +1,6 @@
-package RegistroUsuarios;
+package Catalogo_Cliente;
+
+import Catalogo_Cliente.Clientes;
 
 public class NodoLSC {
 

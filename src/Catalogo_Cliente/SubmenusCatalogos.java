@@ -1,5 +1,6 @@
-package RegistroUsuarios;
+package Catalogo_Cliente;
 
+import Catalogo_Cliente.ListaSC;
 import javax.swing.JOptionPane;
 
 public class SubmenusCatalogos {
@@ -22,7 +23,7 @@ public class SubmenusCatalogos {
 
             switch (botonP) {
                 case 0:
-                    JOptionPane.showMessageDialog(null, "Bienvenid@ a la opcion de Agregrar");
+                    JOptionPane.showMessageDialog(null, "Bienvenid@ a la opcion de Agregar");
                     l.agregar();
                     break;
 

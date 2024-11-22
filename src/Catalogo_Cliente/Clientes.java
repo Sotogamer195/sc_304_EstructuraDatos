@@ -1,4 +1,4 @@
-package RegistroUsuarios;
+package Catalogo_Cliente;
 
 public class Clientes {
 

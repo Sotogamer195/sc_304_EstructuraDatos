@@ -1,4 +1,4 @@
-package RegistroUsuarios;
+package Catalogo_Autos;
 
 public class Auto {
     // Atributos

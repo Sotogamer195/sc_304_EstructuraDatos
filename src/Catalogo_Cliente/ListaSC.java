@@ -1,5 +1,7 @@
-package RegistroUsuarios;
+package Catalogo_Cliente;
 
+import Catalogo_Cliente.NodoLSC;
+import Catalogo_Cliente.Clientes;
 import javax.swing.JOptionPane;
 
 public class ListaSC {

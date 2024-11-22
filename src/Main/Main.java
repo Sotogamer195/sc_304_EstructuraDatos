@@ -1,5 +1,6 @@
-package RegistroUsuarios;
+package Main;
 
+import RegistroUsuarios.UsuarioPila;
 import javax.swing.JOptionPane;
 
 public class Main {
@@ -8,7 +9,7 @@ public class Main {
         // Variable para controlar el menú
         int opcion = 0;
         // Instancia de la clase Rutina
-        Rutina r = new Rutina();
+        UsuarioPila p = new UsuarioPila();
         // Ciclo principal del programa
         do {
             // Menu principal 
@@ -29,20 +30,20 @@ public class Main {
             // Se usa un switch para manejar las opciones del menú
             switch (opcion) {
                 case 1:
-                    r.registrarUsuario();
+                    p.registrarUsuario();
                     break;
                 case 2:
                     String usuario = JOptionPane.showInputDialog("Ingrese su nombre de usuario");
                     String contrasenia = JOptionPane.showInputDialog("Ingrese la contraseña");
-                    r.iniciarSesion(usuario, contrasenia);
+                    p.iniciarSesion(usuario, contrasenia);
                     break;
                 case 3:
                     String usuario2 = JOptionPane.showInputDialog("Ingrese su nombre de usuario");
                     String contrasenia2 = JOptionPane.showInputDialog("Ingrese la contraseña");
-                    r.inactivarUsuario(usuario2, contrasenia2);
+                    p.inactivarUsuario(usuario2, contrasenia2);
                     break;
                 case 4:
-                    r.mostrarUsuarios();
+                    p.mostrarUsuarios();
                     break;
                 case 5:
                     JOptionPane.showMessageDialog(null,

@@ -1,4 +1,6 @@
-package RegistroUsuarios;
+package Catalogo_Autos;
+
+import Catalogo_Autos.Auto;
 
 public class CatalogoAutos {
 
