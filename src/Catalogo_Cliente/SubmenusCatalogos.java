@@ -1,9 +1,11 @@
 package Catalogo_Cliente;
 
 import Catalogo_Cliente.ListaSC;
+import Catalogo_Repuesto.RepuestoLDC;
 import javax.swing.JOptionPane;
 
 public class SubmenusCatalogos {
+
     //Submenu Clientes
     public static void Submenu_Clientes() {
         ListaSC l = new ListaSC();
@@ -46,8 +48,10 @@ public class SubmenusCatalogos {
 
     //Submenu Reparaciones 
     public static void Submenu_Reparaciones() {
-        String botonesC[] = {"Agregar", "Editar", "Inactivar", "Salir"};
+        String botonesC[] = {"Agregar", "Editar", "Inactivar", "Eliminar", "Mostrar", "Salir"};
         boolean detener = false;
+        // instancia de la clase Rutina de RepuestoLDC
+        RepuestoLDC r = new RepuestoLDC();
 
         while (!detener) {
             int botonP = JOptionPane.showOptionDialog(
@@ -62,18 +66,23 @@ public class SubmenusCatalogos {
 
             switch (botonP) {
                 case 0:
-                    JOptionPane.showMessageDialog(null, "Bienvenid@ a la opcion de Agregar");
-
+                    r.confirmarAgregarRepuesto();
                     break;
 
                 case 1:
-                    JOptionPane.showMessageDialog(null, "Bienvenid@ a la opcion de Editar");
-
+                    r.confirmarEditarRepuesto();
                     break;
 
                 case 2:
-                    JOptionPane.showMessageDialog(null, "Bienvenid@ a la opcion de Inactivar");
+                    // Método de inactivar en desarrollo
+                    break;
 
+                    case 3:
+                    r.confirmarExtraerRepuesto();
+                    break;
+                    
+                case 4:
+                    r.mostrarLDC();
                     break;
 
                 default:

@@ -26,7 +26,6 @@ public class Main {
             } catch (NumberFormatException e) {
                 opcion = 0; // Si la entrada no es un número válido, se establece la opción en 0.
             }
-
             // Se usa un switch para manejar las opciones del menú
             switch (opcion) {
                 case 1:
